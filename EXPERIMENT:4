@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *left, *right;
+};
+
+int search(struct Node *root, int key) {
+    if (root == NULL) return 0;
+    if (root->data == key) return 1;
+    if (key < root->data)
+        return search(root->left, key);
+    return search(root->right, key);
+}
